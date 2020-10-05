@@ -1,0 +1,51 @@
+<!--
+ Copyright (c) 2014, 2020, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<div class="oj-hybrid-padding" style="text-align: center;">
+
+  <oj-messages messages="[[messagesDataprovider]]" position="{}" display="notification">
+  </oj-messages>
+
+  <h1>Unifonic - Send Message</h1>
+  <br>
+  <br>
+  <br>
+  <div>
+    <oj-combobox-one value="[[type]]" required id="combobox1" label-hint="Type" style="max-width:20em" disabled="[[sendBtnDisabled]]">
+      <oj-option value="text">text</oj-option>
+      <oj-option value="template">template</oj-option>
+      <oj-option value="image">image</oj-option>
+      <oj-option value="audio">audio</oj-option>
+      <oj-option value="video">video</oj-option>
+      <oj-option value="file">file</oj-option>
+      <oj-option value="datetime">datetime</oj-option>
+      <oj-option value="currency">currency</oj-option>
+    </oj-combobox-one>
+
+
+    <oj-combobox-one value="[[channel]]" required id="combobox2" label-hint="Channel" disabled="[[sendBtnDisabled]]"
+      style="margin: 0 50px; max-width:20em">
+      <oj-option value="whatsapp">whatsapp</oj-option>
+      <oj-option value="messenger">messenger</oj-option>
+      <oj-option value="sms">sms</oj-option>
+    </oj-combobox-one>
+
+  </div>
+  <br>
+  <br>
+  <oj-file-picker required selection-mode="single" style="margin: auto; height:10em" on-oj-select='[[selectListener]]' disabled="[[sendBtnDisabled]]">
+  </oj-file-picker>
+  <br>
+  <div style="font-weight: 700;" class="oj-sm-padding-1x-top">Selected file:
+    <oj-bind-text value="[[fileName]]"></oj-bind-text>
+  </div>
+  <br><br><br>
+
+  <oj-button on-oj-action='[[sendBtnClickAction]]' style="width: 100px;" chroming="callToAction" disabled="[[sendBtnDisabled]]">
+    Send
+  </oj-button>
+
+
+</div>
